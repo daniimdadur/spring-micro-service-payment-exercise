@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: "spring-micro-service-payment-exercise"
+  datasource:
+    url: jdbc:mysql://localhost:3307/micro_service_payment
+    username: root
+    password: P@ssW0rd32!
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        jdbc:
+          time_zone: Asia/Jakarta
+  data:
+    redis:
+      host: localhost
+      port: 6380
+      lettuce:
+        pool:
+          max-idle: 8
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+  docker:
+    compose:
+      readiness:
+        timeout: 30s
+server:
+  port: 8083
