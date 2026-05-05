@@ -2,8 +2,7 @@ package com.gentara.payment.master.model.entity;
 
 import com.gentara.payment.base.BaseAuditableSoftDelete;
 import com.gentara.payment.enums.PaymentMethod;
-import com.gentara.payment.enums.Status;
-import com.gentara.payment.util.CommonUtil;
+import com.gentara.payment.enums.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@SQLDelete(sql = "UPDATE t_order SET deleted_at=CURRENT_TIMESTAMP WHERE id=?")
+@SQLDelete(sql = "UPDATE t_payments SET deleted_at=CURRENT_TIMESTAMP WHERE id=?")
 @Table(name = "t_payments")
 public class PaymentEntity extends BaseAuditableSoftDelete {
 
@@ -45,11 +44,8 @@ public class PaymentEntity extends BaseAuditableSoftDelete {
     private PaymentMethod paymentMethod;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private Status status;
-
-    @Column(name = "notes")
-    private String notes;
+    @Column(name = "payment_status", nullable = false)
+    private PaymentStatus paymentStatus;
 
     @Column(name = "reference_number")
     private String referenceNumber;
@@ -59,4 +55,7 @@ public class PaymentEntity extends BaseAuditableSoftDelete {
 
     @Column(name = "expired_at")
     private LocalDateTime expiredAt;
+
+    @Column(name = "idempotency_key", nullable = false)
+    private String idempotencyKey;
 }

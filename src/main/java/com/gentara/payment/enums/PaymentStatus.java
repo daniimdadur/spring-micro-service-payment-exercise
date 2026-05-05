@@ -1,5 +1,5 @@
 package com.gentara.payment.enums;
 
 public enum PaymentStatus {
-    UNPAID, PARTIAL, PAID, OVERDUE
+    PENDING, PAID, FAILED, EXPIRED
 }
