@@ -1,10 +1,8 @@
-package com.gentara.payment.master.model.request;
+package com.gentara.payment.master.model.callback;
 
-import com.gentara.payment.enums.PaymentMethod;
 import com.gentara.payment.enums.PaymentStatus;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
