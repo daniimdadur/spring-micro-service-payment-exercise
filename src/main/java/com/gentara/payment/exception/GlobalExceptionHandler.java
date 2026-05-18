@@ -43,6 +43,11 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.CONFLICT, ex.getMessage());
     }
 
+    @ExceptionHandler(InvoiceExpiredException.class)
+    public ResponseEntity<ResponseError> handleInvoiceExpiredException(InvoiceExpiredException ex) {
+        return buildResponse(HttpStatus.UNPROCESSABLE_CONTENT, ex.getMessage());
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ResponseError> handleException(Exception ex) {
         return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, "something wrong");

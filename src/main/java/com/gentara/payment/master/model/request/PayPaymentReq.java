@@ -14,5 +14,5 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PayPaymentReq {
     private BigDecimal paidAmount;
-    private LocalDateTime paidAt;
+    private LocalDateTime paidAt = LocalDateTime.now().plusMinutes(1);
 }

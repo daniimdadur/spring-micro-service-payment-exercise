@@ -18,5 +18,4 @@ public class PayPaymentRes {
     private PaymentStatus paymentStatus;
     private String referenceNumber;
     private LocalDateTime paidAt;
-    private String message;
 }

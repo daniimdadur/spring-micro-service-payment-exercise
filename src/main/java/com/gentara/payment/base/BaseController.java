@@ -26,7 +26,14 @@ public class BaseController<T> {
                 .orElseGet(() -> buildResponse(HttpStatus.NOT_FOUND, null));
     }
 
-    public ResponseEntity<Response> getResponse(T result) {
+//    public ResponseEntity<Response> getResponse(T result) {
+//        if (result != null) {
+//            return buildResponse(HttpStatus.OK, result);
+//        }
+//        return buildResponse(HttpStatus.BAD_REQUEST, null);
+//    }
+
+    public ResponseEntity<Response> getResponse(Object result) {
         if (result != null) {
             return buildResponse(HttpStatus.OK, result);
         }
